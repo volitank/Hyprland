@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all, nocheck
+export CC=/usr/bin/gcc-12
+export CXX=/usr/bin/g++-12
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	make protocols
+	make fixwlr
+	cd subprojects/wlroots && meson ./build --prefix=$(shell pwd)/build --buildtype=release
+	cd subprojects/wlroots && ninja -C build/
+	cd subprojects/wlroots && ninja -C build/ install
+
+override_dh_auto_build:
+	make release
+	cd ./hyprctl && make all && cd ..
+
+override_dh_auto_test:
+	DEB_BUILD_OPTIONS=nocheck dh_auto_test
+
+override_dh_auto_install:
+	chrpath -r /usr/lib/${DEB_HOST_MULTIARCH}/hyprland build/Hyprland
+
+override_dh_auto_clean:
+	make clear
+	dh_auto_clean
+
+override_dh_strip:
+	dh_strip --no-automatic-dbgsym
+	rm -rf debian/hyprland/usr/lib/debug/

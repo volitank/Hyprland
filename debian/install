@@ -1,0 +1,7 @@
+build/Hyprland usr/bin
+hyprctl/hyprctl usr/bin
+build/lib/x86_64-linux-gnu/libwlroots.so.11032 usr/lib/${DEB_HOST_MULTIARCH}/hyprland
+example/hyprland.desktop usr/share/wayland-sessions
+assets/wall_2K.png usr/share/hyprland
+assets/wall_4K.png usr/share/hyprland
+assets/wall_8K.png usr/share/hyprland

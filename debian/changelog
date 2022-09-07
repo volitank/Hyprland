@@ -1,0 +1,5 @@
+hyprland (2022.09.07) unstable; urgency=medium
+
+  * First debian package
+
+ -- Blake Lee <blake@volian.org>  Wed, 07 Sep 2022 01:09:02 -0400

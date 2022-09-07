@@ -1,0 +1,61 @@
+Source: hyprland
+Section: x11
+Priority: optional
+Maintainer: Volian Developers <volian-devel@volian.org>
+Uploaders: Blake Lee <blake@volian.org>
+Build-Depends:
+  debhelper-compat (= 13),
+  gdb,
+  gcc-12,
+  g++-12,
+  cmake,
+  meson,
+  ninja-build,
+  pkg-config,
+  chrpath,
+  git,
+  wayland-scanner++,
+  wayland-protocols,
+  xwayland,
+  vulkan-tools,
+  mesa-vulkan-drivers,
+  glslang-tools,
+  libxrender-dev,
+  libpixman-1-dev,
+  libcairo2-dev,
+  libpango-1.0-0,
+  libwayland-dev,
+  libdrm-dev,
+  libudev-dev,
+  libgbm-dev,
+  libegl-dev,
+  libgles-dev,
+  libvulkan-dev,
+  libseat-dev,
+  libinput-dev,
+  libwlroots-dev,
+  libpango1.0-dev,
+  libavutil-dev,
+  libavcodec-dev,
+  libavformat-dev,
+  libxcb1-dev,
+  libxcb-composite0-dev,
+  libxcb-icccm4-dev,
+  libxcb-render0-dev,
+  libxcb-res0-dev,
+  libxcb-xfixes0-dev,
+  libxkbcommon-dev,
+Rules-Requires-Root: no
+Standards-Version: 4.6.0
+Homepage: https://github.com/hyprwm/Hyprland
+Vcs-Git: https://github.com/hyprwm/Hyprland.git
+Vcs-Browser: https://github.com/hyprwm/Hyprland
+
+Package: hyprland
+Architecture: any
+Depends:
+  ${shlibs:Depends},
+  ${misc:Depends},
+Description: Dynamic tiling Wayland compositor
+ Hyprland is a dynamic tiling Wayland compositor
+ based on wlroots that doesn't sacrifice on its looks.
